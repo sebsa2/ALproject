@@ -43,5 +43,7 @@ for wind_farm in wind_farms:
     test.loc[test['Total nominal power'] >= 10]
     
     test.drop(['longlat','longlong'], axis=1, inplace=True)
-    test.to_csv(path+'/'+wind_farm[:-4]+'_formatted'+'.csv')
+    
+    test['energy_source'] = 'Wind'
+    test.to_csv(path+'/'+wind_farm[:-4]+'_formatted'+'.csv', encoding='utf-8')
 
